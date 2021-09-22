@@ -1,0 +1,17 @@
+version: "3"
+services:
+  pasqooda-api:
+    build: .
+    volumes:
+      - /Users/denis/www/v4p-alertbot:/apps/v4p-alertbot
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - DEBUG=${DEBUG}
+    restart: "unless-stopped"
+    hostname: "docker_v4p_alertbot"
+    container_name: "v4p_alertbot"
+    ports:
+      - 4040:8086
+    tty: false
